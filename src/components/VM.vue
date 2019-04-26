@@ -20,7 +20,10 @@
                 </table>
             </div>
         </div>    
-        <div class="row">    
+        <div class="row">
+            <div class="col-md-1 create pull-right">
+                <VInstall></VInstall>
+            </div>    
             <div class="panel panel-info">
                 <div class="panel-heading">未安装</div>
                 <table class="table table-hover table-striped">
@@ -48,6 +51,7 @@
 import VHostHeader from './VHostHeader.vue'
 import VHostForm from './VHostForm.vue'
 import VCreate from './VCbtn.vue'
+import VInstall from './VInstallbtn.vue'
 import VPUt from './VPbtn.vue'
 import VDEL from './VDbtn.vue'
 
@@ -77,7 +81,8 @@ export default {
         VHostForm,
         VCreate,
         VPUt,
-        VDEL
+        VDEL,
+        VInstall
     }
 }
 </script>
