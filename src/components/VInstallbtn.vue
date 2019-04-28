@@ -23,7 +23,7 @@ export default {
                 const h = _this.$createElement;
                 _this.$notify({
                     title: '虚拟机创建',
-                    message: h('i','虚拟机正在创建中...，预计15分钟左右，可查看/var/log/vmcreate.log日志')
+                    message: h('i','虚拟机正在创建中...，预计15分钟左右，可查看/export/VMWare_Auto/vm_create/vminfo.log日志')
                 });
                 console.log(response.data);
             })
