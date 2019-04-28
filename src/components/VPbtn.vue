@@ -1,6 +1,6 @@
 <template>
     <div class='col-md-6'>
-         <el-button type="primary" size='small' @click="Vget()">修改</el-button>
+         <el-button type="primary" size='small' @click="Vget()" :disabled="isDisable">修改</el-button>
 
         <el-dialog title="更新虚拟机" :visible.sync="dialogFormVisible" center>
             <el-form :model="form" :rules="rules" :label-width="formLabelWidth">
@@ -58,6 +58,7 @@ export default {
         return {
             dialogFormVisible:false,
             formLabelWidth: '120px',
+            isDisable: false,
             form: {
                 "vm_name": '',
                 "vm_cpu": '',
@@ -105,10 +106,14 @@ export default {
         }
     },
     props:{
-        pk:Number
+        pk:Number,
+        audit:Number
     },
     created(){
-        // console.log(this.pk)
+        // console.log(this.audit)
+        if(this.audit == 1){
+            this.isDisable=true
+        }
     },
     methods:{
         Vget(){

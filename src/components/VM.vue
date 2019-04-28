@@ -37,7 +37,7 @@
                     <tbody>
                         <VHostForm v-for='(item,index) in getUnForms' :forms='item' :key='index'>
                             <td class='col-md-1'>
-                                    <VPUt :pk='item.id'></VPUt>
+                                    <VPUt :pk='item.id' :audit='item.vm_audit'></VPUt>
                                     <VDEL :pk='item.id'></VDEL>
                             </td>
                         </VHostForm>
