@@ -18,7 +18,7 @@ export default {
     methods: {
         vminstall() {
             const _this=this
-            axios.get(`http://172.20.100.172:8000/api/v1/vmhost/vcreate/`)
+            axios.get(_this.BaseUrl.baseURL+'/api/v1/vmhost/vcreate/')
             .then(function(response){
                 const h = _this.$createElement;
                 _this.$notify({

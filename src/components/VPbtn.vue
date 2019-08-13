@@ -118,7 +118,7 @@ export default {
     methods:{
         Vget(){
             const _this=this
-            axios.get(`http://172.20.100.172:8000/api/v1/vmhost/${_this.pk}/`)
+            axios.get(_this.BaseUrl.baseURL+`/api/v1/vmhost/${_this.pk}/`)
             .then(function(response){
                     // console.log(response);
                     _this.form.vm_name=response.data.vm_name
@@ -139,7 +139,7 @@ export default {
         },
         Vput(){
             const _this=this
-            axios.put(`http://172.20.100.172:8000/api/v1/vmhost/${_this.pk}/`,{
+            axios.put(_this.BaseUrl.baseURL+`/api/v1/vmhost/${_this.pk}/`,{
                 "vm_name": this.form.vm_name,
                 "vm_cpu": this.form.vm_cpu,
                 "vm_memory": this.form.vm_memory,

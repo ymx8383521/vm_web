@@ -3,6 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import BaseUrl from './api.js'
+
+Vue.prototype.BaseUrl=BaseUrl
 
 // vuex的使用
 Vue.config.productionTip = false
@@ -95,7 +98,7 @@ const store=new Vuex.Store({
   actions:{
     // 通过axios获取数据 在Host异步dispatch
     getHostHeader(context){
-      axios.get('http://172.20.100.172:8000/api/v1/host/headers/')
+      axios.get(BaseUrl.baseURL+'/api/v1/host/headers/')
       .then(function(response){
         // console.log('获取表头信息',response);
         context.commit('GETHOSTHEADER',response)
@@ -105,7 +108,7 @@ const store=new Vuex.Store({
       })
     },
     getHostList(context,host_ip){
-      axios.get('http://172.20.100.172:8000/api/v1/host/',{
+      axios.get(BaseUrl.baseURL+'/api/v1/host/',{
         params:{
           host_ip:`${host_ip}`
         }
@@ -126,7 +129,7 @@ const store=new Vuex.Store({
     },
     // 获取机房相关
     getRoomList(context){
-      axios.get('http://172.20.100.172:8000/api/v1/room/')
+      axios.get(BaseUrl.baseURL+'/api/v1/room/')
       .then(function(response){
         // console.log('机房信息',response);
         context.commit('GETROOMLIST',response)
@@ -136,7 +139,7 @@ const store=new Vuex.Store({
       })
     },
     getRoomhosts(context,pk){
-      axios.get(`http://172.20.100.172:8000/api/v1/room/${pk}/`)
+      axios.get(BaseUrl.baseURL+`/api/v1/room/${pk}/`)
       .then(function(response){
         // console.log('机房主机列表',response);
         context.commit('GETROOMHOSTS',response)
@@ -147,7 +150,7 @@ const store=new Vuex.Store({
     },
     // 获取虚拟机相关
     getVHostHeader(context){
-      axios.get('http://172.20.100.172:8000/api/v1/vmhost/headers/')
+      axios.get(BaseUrl.baseURL+'/api/v1/vmhost/headers/')
       .then(function(response){
         // console.log('获取表头信息',response);
         context.commit('GETVHOSTHEADER',response)
@@ -157,7 +160,7 @@ const store=new Vuex.Store({
       })
     },
     getInstallVmHosts(context){
-      axios.get('http://172.20.100.172:8000/api/v1/vmhost/',{
+      axios.get(BaseUrl.baseURL+'/api/v1/vmhost/',{
         params:{
           vm_installed:1
         }
@@ -171,7 +174,7 @@ const store=new Vuex.Store({
       })
     },
     getUnstallVmHosts(context){
-      axios.get('http://172.20.100.172:8000/api/v1/vmhost/',{
+      axios.get(BaseUrl.baseURL+'/api/v1/vmhost/',{
         params:{
           vm_installed:0
         }

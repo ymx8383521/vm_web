@@ -115,7 +115,7 @@ export default {
     methods:{
         Vcreate(){
             const _this=this
-            axios.post('http://172.20.100.172:8000/api/v1/vmhost/',{
+            axios.post(_this.BaseUrl.baseURL+'/api/v1/vmhost/',{
                 "vm_name": this.form.vm_name,
                 "vm_cpu": this.form.vm_cpu,
                 "vm_memory": this.form.vm_memory,

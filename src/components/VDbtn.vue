@@ -27,7 +27,7 @@ export default {
             .then(() => {
                 // 发axios
                 // console.log(this.pk)
-                axios.delete(`http://172.20.100.172:8000/api/v1/vmhost/${this.pk}/`)
+                axios.delete(_this.BaseUrl.baseURL+`/api/v1/vmhost/${this.pk}/`)
                 .then(function(response){
                     _this.$message({
                         type: 'success',
